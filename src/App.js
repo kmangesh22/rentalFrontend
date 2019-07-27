@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React from 'react'
+import LoginPage from './components/Login'
+import Home from './components/Home'
+import RegisterForm from './components/RegisterForm'
+import Profile from './components/Profile'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import ProductDetails from './components/ProductDetail'
+import ProtectedRoute from './components/ProtectedRoute'
+class App extends React.Component {
+	render() {
+		return (
+			<Router>
+				<Route exact path='/home' component={Home} />
+				<Route path='/register' component={() => <RegisterForm />} />
+				<Route path={`/home/:id`} component={ProductDetails} />
+				{/* <ProtectedRoute path='/' exact={true} component={Home} />*/}
+				<Route path='/login' component={() => <LoginPage />} />
+				<Route path='/profile' component={() => <Profile />} />
+			</Router>
+		)
+	}
 }
 
-export default App;
+export default App

@@ -1,0 +1,163 @@
+
+// export default class Home extends React.Component {
+// 	render() {
+// 		return (
+// 			<div style={{width:'100%'}}>
+// 				<NavBar navItems={['Home', 'Login', 'Sign Up']} />
+// 				<Search
+// 				style={{marginLeft:'13%',width:'85%'}}
+// 					placeholder='input search text'
+// 					onSearch={value => console.log(value)}
+// 					enterButton
+// 				/>
+// 				<ProductList items={Items} />
+// 			</div>
+// 		)
+// 	}
+// }
+
+
+
+
+
+// const NavBar = props => {
+// 	const navRef = React.useRef(null)
+// 	const [open, setstate] = React.useState(false)
+// 	return (
+// 		<div ref={navRef} className={styles.nav}>
+// 			<Icon
+// 				onClick={() => {
+// 					let closeWidth,openWidth;
+// 					if(window.innerWidth <=499){
+// 						closeWidth='14%'
+// 						openWidth='75%'
+// 					}
+// 					else if(window.innerWidth >= 600 && window.innerWidth <770){
+// 						closeWidth="8%"
+// 						openWidth="45%"
+// 					}
+// 					else{
+// 						closeWidth='4%'
+// 						openWidth='19%'
+// 					}
+// 					if (open) {
+// 						navRef.current.style.width = closeWidth
+// 						setstate(false)
+// 					} else {
+// 						navRef.current.style.width = openWidth
+// 						setstate(true)
+// 					}
+// 				}}
+// 				className={styles['nav-toggler']}
+// 				type={open ? 'close' : 'menu'}
+// 			/>
+// 			<div className={styles['nav-menu']}>
+// 				<div className={styles['nav-item']}>
+// 					<Icon type='home' />
+// 					<span>HOME</span>
+// 				</div>
+// 				<div className={styles['nav-item']}>
+// 					<Icon type='login' />
+// 					<span>LOGIN</span>
+// 				</div>
+// 				<div className={styles['nav-item']}>
+// 					<Icon type='user-add' />
+// 					<span>SIGN UP</span>
+// 				</div>
+// 			</div>
+// 		</div>
+// 	)
+// }
+
+
+
+
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	height: 100%;
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	height: 100%;
+	width: 4%;
+	flex-direction: column;
+	justify-content: space-evenly;
+	padding: 1%;
+	z-index:100;
+	background-color: black;
+	margin: 0;
+	
+}
+.nav-menu {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	height: 50%;
+	align-items: center;
+	background-color: black;
+
+	justify-content: space-around;
+}
+.nav-item {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	margin: 6%;
+	height: 10%;
+	text-align: center;
+}
+.nav-toggler {
+	position: absolute;
+	top: 2%;
+}
+i {
+	display: inline;
+	color: white !important;
+}
+span {
+	padding: 4%;
+	color: white !important;
+	font-family: 'Roboto Condensed', sans-serif;
+} */
+
+/* mobile view media query*/
+/* @media (max-width: 499px) {
+	i,
+	span {
+		font-size: 25px;
+	}
+	.nav{
+		width:14%;
+	}
+} */
+/* media query for tablet */
+/* @media only screen and (min-width: 600px){
+	i,
+	span {
+		font-size: 25px;
+	}
+	.nav{
+		width:8%;
+	}
+} */
+/* media query for desktop and laptop */
+/* @media only screen and (min-width: 770px) {
+	i,
+	span {
+		font-size: 15px;
+	}
+	.nav{
+		width:4%;
+	}
+} */
