@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Alert, Icon, Button } from 'antd'
+import { Row, Alert, Icon, Button } from 'antd'
 import TopNav from './TopNav'
 
 const styles = {
