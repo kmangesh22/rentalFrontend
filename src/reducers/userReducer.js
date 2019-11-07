@@ -2,6 +2,7 @@ import {
 	LOGIN_FULLFILLED,
 	LOGIN_REJECTED,
 	LOGIN_SENT,
+	LOGOUT,
 } from '../actions/actionTypes'
 import { loadState } from '../store/localStorage'
 const initialState = loadState() || {
@@ -22,9 +23,15 @@ export default function userReducer(state = initialState, action) {
 		case LOGIN_FULLFILLED:
 			return {
 				...state,
-				auth_token: action.payload.auth_token,
+				auth_token: action.payload.token,
 				loggedIn: true,
 				error: '',
+			}
+		case LOGOUT:
+			return {
+				...state,
+				auth_token: '',
+				loggedIn: false,
 			}
 		default:
 			return state

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Icon, Row, Avatar, Col } from 'antd'
 import TopNav from './TopNav'
-
+import { connect } from 'react-redux'
+import { logout } from '../actions/userActions'
 const styles = {
 	profile: {
 		boxSizing: 'border-box',
@@ -25,13 +26,15 @@ const styles = {
 		display: 'flex',
 	},
 }
-export default function profile(props) {
+function Profile(props) {
 	return (
 		<React.Fragment>
 			<TopNav
 				title='Profile'
 				back='/home'
-				menuItems={[{ to: '/logout', text: 'Logout' }]}
+				menuItems={[
+					{ to: () => props.logout(), text: <Icon type='logout'></Icon> },
+				]}
 			/>
 			<Row style={styles['profile']}>
 				<Row style={styles['profile-header']}>
@@ -78,3 +81,8 @@ export default function profile(props) {
 		</React.Fragment>
 	)
 }
+
+export default connect(
+	null,
+	{ logout }
+)(Profile)

@@ -3,6 +3,9 @@ import { Row, Col, Tag, Icon } from 'antd'
 import 'antd/dist/antd.css'
 
 import '../styles/Product.css'
+
+/*OLD STYLE */
+
 // const Product = ({ id, name, description, leasedDays, price, imgUrl }) => (
 // 	<div key={id} className='product'>
 // 		<div className='product-header'>
@@ -45,8 +48,8 @@ const Product = ({ id, name, description, leasedDays, price, imgUrl }) => (
 			</Col>
 		</Row>
 		<Row className='product-description'>
-			{description.map(desc => (
-				<Tag>{desc}</Tag>
+			{description.map((desc, index) => (
+				<Tag key={index}>{desc}</Tag>
 			))}
 		</Row>
 	</Row>

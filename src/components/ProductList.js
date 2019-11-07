@@ -9,8 +9,8 @@ export default class ProductList extends React.Component {
 		return (
 			<React.Fragment>
 				<div style={{ display: 'flex', flexWrap: 'wrap' }}>
-					{items.map(item => (
-						<Link to={`${this.props.match.url}/${item.id}`}>
+					{items.map((item, index) => (
+						<Link key={index} to={`${this.props.match.url}/${item.id}`}>
 							<Product
 								id={item.id}
 								name={item.name}

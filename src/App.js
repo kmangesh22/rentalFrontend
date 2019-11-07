@@ -1,21 +1,26 @@
 import React from 'react'
 import LoginPage from './components/Login'
 import Home from './components/Home'
-import RegisterForm from './components/RegisterForm'
 import Profile from './components/Profile'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import ProductDetails from './components/ProductDetail'
 import ProtectedRoute from './components/ProtectedRoute'
+import Register from './components/Register'
+import History from './components/History'
+import Review from './components/Review'
+
 class App extends React.Component {
 	render() {
 		return (
 			<Router>
-				<Route exact path='/home' component={Home} />
-				<Route path='/register' component={() => <RegisterForm />} />
-				<Route path={`/home/:id`} component={ProductDetails} />
-				{/* <ProtectedRoute path='/' exact={true} component={Home} />*/}
-				<Route path='/login' component={() => <LoginPage />} />
-				<Route path='/profile' component={() => <Profile />} />
+				<Route path='/' exact={true} render={() => <Redirect to='/home' />} />
+				<ProtectedRoute path='/home' exact={true} component={Home} />
+				<ProtectedRoute path='/home/:id' component={ProductDetails} />
+				<Route path='/login' component={LoginPage} />
+				<Route path='/register' component={Register} />
+				<ProtectedRoute path='/profile' component={Profile} />
+				<ProtectedRoute path='/history' component={History} />
+				<ProtectedRoute path='/review/:id' component={Review} />
 			</Router>
 		)
 	}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Alert, Icon, Button } from 'antd'
 import TopNav from './TopNav'
+import CommentList, { Editor } from './CommentList'
 
 const styles = {
 	'product-img-container': {
@@ -95,6 +96,8 @@ export default class ProductDetails extends React.Component {
 						<li>Material: Plastic</li>
 					</ul>
 				</Row>
+				<CommentList />
+				<Editor />
 				<Button.Group
 					style={{
 						width: '100%',

@@ -1,23 +1,27 @@
-import { LOGIN_SENT, LOGIN_FULLFILLED, LOGIN_REJECTED } from './actionTypes'
+import {
+	LOGIN_SENT,
+	LOGIN_FULLFILLED,
+	LOGIN_REJECTED,
+	LOGOUT,
+} from './actionTypes'
 
 export function login(json, history) {
 	return dispatch => {
-		dispatch(loginSent())
-		fetch('http://192.168.0.9:8080/login', {
+		fetch('http://192.168.43.84:8080/login/login', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
 			},
 			body: JSON.stringify(json),
-			mode: 'no-cors',
 		})
+			.then(dispatch(loginSent()))
 			.then(res => res.json())
 			.then(res => {
 				if (res.error) {
 					dispatch(loginRejected(res.error))
 				} else {
 					dispatch(loginFullfilled(res))
-					history.push('/')
+					history.push('/home')
 				}
 			})
 			.catch(err => {
@@ -32,11 +36,10 @@ export function loginSent() {
 	}
 }
 
-export function loginFullfilled(user) {
-	console.log(user)
+export function loginFullfilled(res) {
 	return {
 		type: LOGIN_FULLFILLED,
-		payload: user,
+		payload: res,
 	}
 }
 
@@ -44,5 +47,11 @@ export function loginRejected(err) {
 	return {
 		type: LOGIN_REJECTED,
 		payload: err,
+	}
+}
+
+export function logout() {
+	return {
+		type: LOGOUT,
 	}
 }
